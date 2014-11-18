@@ -33,7 +33,7 @@ public class DiasHora {
 	 * @return the id
 	 */
 	@Id
-	@Column(name="IDDIASHORAS" , nullable = false)
+	@Column(name="IDDIASHORA" , nullable = false)
 	public Long getId() {
 		return id;
 	}

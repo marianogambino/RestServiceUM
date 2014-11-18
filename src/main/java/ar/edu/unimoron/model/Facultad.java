@@ -29,6 +29,7 @@ public class Facultad {
 	private Long id;
 	private String nombre;
 	private Set<Carrera> carrera = new HashSet<Carrera>();
+	private Set<NovedadFacultad> novedades = new HashSet<NovedadFacultad>();
 	
 	/**
 	 * @return the id
@@ -75,13 +76,31 @@ public class Facultad {
 	public void setCarrera(Set<Carrera> carrera) {
 		this.carrera = carrera;
 	}
+	
+	/**
+	 * @return the novedades
+	 */
+	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "facultad")
+	@Cascade({org.hibernate.annotations.CascadeType.ALL,
+			  org.hibernate.annotations.CascadeType.DELETE})
+	public Set<NovedadFacultad> getNovedades() {
+		return novedades;
+	}
+	/**
+	 * @param novedades the novedades to set
+	 */
+	public void setNovedades(Set<NovedadFacultad> novedades) {
+		this.novedades = novedades;
+	}
+	
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "Facultad [id=" + id + ", nombre=" + nombre + ", carrera="
-				+ carrera + "]";
+				+ carrera + ", novedades=" + novedades + "]";
 	}
 	
 	

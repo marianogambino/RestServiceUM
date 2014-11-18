@@ -7,22 +7,23 @@
 		<!--provider>org.hibernate.ejb.HibernatePersistence</provider-->
         
         	<class>ar.edu.unimoron.model.DatosAlumno</class>
-      		<!-- <class>um.appl.cmp2.empleado.dobj.EmpleadoDO</class>
-      		<class>um.appl.cmp2.persona.dobj.PersonaDO</class>
-      		<class>um.appl.cmp2.cliente.dobj.ClienteDO</class>
-      		<class>um.appl.cmp2.tarifa.dobj.ImpuestoDO</class>
-      		<class>um.appl.cmp2.tarifa.dobj.TarifaDO</class>
-      		<class>um.appl.cmp2.tarifa.dobj.TipoTarifaDO</class>
-      		<class>um.appl.cmp2.tarifa.dobj.TipoTarifaImpuestoDO</class>
-        	<class>um.appl.cmp2.puntoSuministro.dobj.PuntoSuministroDO</class>
-        	<class>um.appl.cmp2.puntoSuministro.dobj.LocalidadDO</class>
-        	<class>um.appl.cmp2.puntoSuministro.dobj.TipoPuntoSuministroDO</class>
-        	<class>um.appl.cmp2.medidor.dobj.MedidorDO</class>
-        	<class>um.appl.cmp2.medidor.dobj.EstadoMedidorDO</class>
-        	<class>um.appl.cmp2.medidor.dobj.TipoEstadoMedidorDO</class>
-        	<class>um.appl.cmp2.factura.dobj.FacturaDO</class>
-        	<class>um.appl.cmp2.consumo.dobj.ConsumoDO</class>
-         -->
+      		<class>ar.edu.unimoron.model.AlumnoCurso</class>
+      		<class>ar.edu.unimoron.model.Carrera</class>
+      		<class>ar.edu.unimoron.model.AlumnoExamen</class>
+      		<class>ar.edu.unimoron.model.CarreraMateria</class>
+      		<class>ar.edu.unimoron.model.Curso</class>
+      		<class>ar.edu.unimoron.model.DiasHora</class>
+      		<class>ar.edu.unimoron.model.Examen</class>
+      		<class>ar.edu.unimoron.model.DatosAlumno</class>
+      		<class>ar.edu.unimoron.model.Facultad</class>
+      		<class>ar.edu.unimoron.model.Materia</class>
+      		<class>ar.edu.unimoron.model.Novedad</class>
+      		<class>ar.edu.unimoron.model.Profesor</class>
+      		<class>ar.edu.unimoron.model.ProfesorCurso</class>
+      		<class>ar.edu.unimoron.model.Usuario</class>
+      		<class>ar.edu.unimoron.model.NovedadFacultad</class>
+      		
+     
         <!--properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect"/>
             <property name="hibernate.connection.driver_class" value="oracle.jdbc.driver.OracleDriver"/>
