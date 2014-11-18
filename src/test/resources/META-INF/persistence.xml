@@ -1,0 +1,82 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+   version="1.0">
+
+    <persistence-unit name="hibernate_jdbc" transaction-type="RESOURCE_LOCAL">
+		<!--provider>org.hibernate.ejb.HibernatePersistence</provider-->
+        
+        	<class>ar.edu.unimoron.model.DatosAlumno</class>
+      		<!-- <class>um.appl.cmp2.empleado.dobj.EmpleadoDO</class>
+      		<class>um.appl.cmp2.persona.dobj.PersonaDO</class>
+      		<class>um.appl.cmp2.cliente.dobj.ClienteDO</class>
+      		<class>um.appl.cmp2.tarifa.dobj.ImpuestoDO</class>
+      		<class>um.appl.cmp2.tarifa.dobj.TarifaDO</class>
+      		<class>um.appl.cmp2.tarifa.dobj.TipoTarifaDO</class>
+      		<class>um.appl.cmp2.tarifa.dobj.TipoTarifaImpuestoDO</class>
+        	<class>um.appl.cmp2.puntoSuministro.dobj.PuntoSuministroDO</class>
+        	<class>um.appl.cmp2.puntoSuministro.dobj.LocalidadDO</class>
+        	<class>um.appl.cmp2.puntoSuministro.dobj.TipoPuntoSuministroDO</class>
+        	<class>um.appl.cmp2.medidor.dobj.MedidorDO</class>
+        	<class>um.appl.cmp2.medidor.dobj.EstadoMedidorDO</class>
+        	<class>um.appl.cmp2.medidor.dobj.TipoEstadoMedidorDO</class>
+        	<class>um.appl.cmp2.factura.dobj.FacturaDO</class>
+        	<class>um.appl.cmp2.consumo.dobj.ConsumoDO</class>
+         -->
+        <!--properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect"/>
+            <property name="hibernate.connection.driver_class" value="oracle.jdbc.driver.OracleDriver"/>
+            <property name="hibernate.connection.url" value="jdbc:oracle:thin:@127.0.0.1:1521:ORCL"/>
+            <property name="hibernate.connection.username" value="oracle"/>
+            <property name="hibernate.connection.password" value="0211"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            
+        </properties-->
+    </persistence-unit>
+
+
+   <!--  <persistence-unit name="hibernate_jta" transaction-type="JTA">
+        <jta-data-source>jdbc/DIS_OLTP</jta-data-source>
+
+		<class>um.appl.cmp2.usuario.dobj.UsuarioDO</class>
+      		<class>um.appl.cmp2.empleado.dobj.EmpleadoDO</class>
+      		<class>um.appl.cmp2.persona.dobj.PersonaDO</class>
+      		<class>um.appl.cmp2.cliente.dobj.ClienteDO</class>
+      		<class>um.appl.cmp2.tarifa.dobj.ImpuestoDO</class>
+      		<class>um.appl.cmp2.tarifa.dobj.TarifaDO</class>
+      		<class>um.appl.cmp2.tarifa.dobj.TipoTarifaDO</class>
+      		<class>um.appl.cmp2.tarifa.dobj.TipoTarifaImpuestoDO</class>
+        	<class>um.appl.cmp2.puntoSuministro.dobj.PuntoSuministroDO</class>
+        	<class>um.appl.cmp2.puntoSuministro.dobj.LocalidadDO</class>
+        	<class>um.appl.cmp2.puntoSuministro.dobj.TipoPuntoSuministroDO</class>
+        	<class>um.appl.cmp2.medidor.dobj.MedidorDO</class>
+        	<class>um.appl.cmp2.medidor.dobj.EstadoMedidorDO</class>
+        	<class>um.appl.cmp2.medidor.dobj.TipoEstadoMedidorDO</class>
+        	<class>um.appl.cmp2.factura.dobj.FacturaDO</class>
+        	<class>um.appl.cmp2.consumo.dobj.ConsumoDO</class>
+			
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle9Dialect"/>
+            <property name="hibernate.session_factory_name" value="hibernate/session_factory"/>
+            <property name="hibernate.transaction.factory_class" value="org.hibernate.ejb.transaction.JoinableCMTTransactionFactory " />        
+            <property name="hibernate.transaction.flush_before_completion" value="true"/>
+            <property name="hibernate.transaction.auto_close_session" value="false"/>
+            <property name="hibernate.transaction.manager_lookup_class" value="org.hibernate.transaction.WeblogicTransactionManagerLookup"/>
+            <property name="hibernate.current_session_context_class" value="jta"/>
+        
+            <property name="hibernate.query.factory_class" value="org.hibernate.hql.ast.ASTQueryTranslatorFactory"/>
+            <property name="hibernate.cache.provider_class" value="net.sf.ehcache.hibernate.SingletonEhCacheProvider"/>
+            <property name="hibernate.cache.use_query_cache" value="true"/>
+
+            
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/> 
+
+            
+            <property name="hibernate.archive.autodetection" value="none"/>  
+                           
+        </properties> 
+    </persistence-unit-->
+    
+</persistence>
