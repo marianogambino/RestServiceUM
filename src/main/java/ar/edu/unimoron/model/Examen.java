@@ -4,25 +4,44 @@
 package ar.edu.unimoron.model;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
 
 /**
  * @author mariano
  *
  */
+@Entity
+@Table(name="EXAMEN")
 public class Examen {
 
 	private Long id;
 	private Materia materia;
 	private String aula;
 	private Date fechaExamen;
-	private Set<DatosAlumno> alumnosIncriptos;
-	private Integer nota;
-	private String estado; //ausente o rendido
+	private Set<AlumnoExamen> alumnosIncriptos = new HashSet<AlumnoExamen>();
+	
 	
 	/**
 	 * @return the id
 	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="IDEXAMEN" , nullable = false)
 	public Long getId() {
 		return id;
 	}
@@ -35,6 +54,8 @@ public class Examen {
 	/**
 	 * @return the materia
 	 */
+	@OneToOne
+	@JoinColumn(name="IDMATERIA", nullable = false)
 	public Materia getMateria() {
 		return materia;
 	}
@@ -48,6 +69,7 @@ public class Examen {
 	/**
 	 * @return the aula
 	 */
+	@Column(name="AULA" , nullable = false)
 	public String getAula() {
 		return aula;
 	}
@@ -60,6 +82,7 @@ public class Examen {
 	/**
 	 * @return the fechaExamen
 	 */
+	@Column(name="FECHAEXAMEN" , nullable = false)
 	public Date getFechaExamen() {
 		return fechaExamen;
 	}
@@ -72,39 +95,19 @@ public class Examen {
 	/**
 	 * @return the alumnosIncriptos
 	 */
-	public Set<DatosAlumno> getAlumnosIncriptos() {
+	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "examen")
+	@Cascade({org.hibernate.annotations.CascadeType.ALL,
+			  org.hibernate.annotations.CascadeType.DELETE})
+	public Set<AlumnoExamen> getAlumnosIncriptos() {
 		return alumnosIncriptos;
 	}
 	/**
 	 * @param alumnosIncriptos the alumnosIncriptos to set
 	 */
-	public void setAlumnosIncriptos(Set<DatosAlumno> alumnosIncriptos) {
+	public void setAlumnosIncriptos(Set<AlumnoExamen> alumnosIncriptos) {
 		this.alumnosIncriptos = alumnosIncriptos;
 	}
-	/**
-	 * @return the nota
-	 */
-	public Integer getNota() {
-		return nota;
-	}
-	/**
-	 * @param nota the nota to set
-	 */
-	public void setNota(Integer nota) {
-		this.nota = nota;
-	}
-	/**
-	 * @return the estado
-	 */
-	public String getEstado() {
-		return estado;
-	}
-	/**
-	 * @param estado the estado to set
-	 */
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -112,10 +115,7 @@ public class Examen {
 	public String toString() {
 		return "Examen [id=" + id + ", materia=" + materia + ", aula=" + aula
 				+ ", fechaExamen=" + fechaExamen + ", alumnosIncriptos="
-				+ alumnosIncriptos + ", nota=" + nota + ", estado=" + estado
-				+ "]";
+				+ alumnosIncriptos + "]";
 	}
-	
-	
 	
 }

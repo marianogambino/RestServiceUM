@@ -3,10 +3,17 @@
  */
 package ar.edu.unimoron.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * @author mariano
  *
  */
+@Entity
+@Table(name="PROFESOR") 
 public class Profesor {
 
 	private Long id;
@@ -21,6 +28,8 @@ public class Profesor {
 	/**
 	 * @return the id
 	 */
+	@Id
+	@Column(name="IDPROFESOR" , nullable = false)
 	public Long getId() {
 		return id;
 	}
@@ -33,6 +42,7 @@ public class Profesor {
 	/**
 	 * @return the nombre
 	 */
+	@Column(name="NOMBRE" , nullable = false)
 	public String getNombre() {
 		return nombre;
 	}
@@ -45,6 +55,7 @@ public class Profesor {
 	/**
 	 * @return the apellido
 	 */
+	@Column(name="APELLIDO" , nullable = false)
 	public String getApellido() {
 		return apellido;
 	}
@@ -62,6 +73,4 @@ public class Profesor {
 		return "Profesor [id=" + id + ", nombre=" + nombre + ", apellido="
 				+ apellido + "]";
 	}
-	
-	
 }

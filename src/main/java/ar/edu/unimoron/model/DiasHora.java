@@ -5,24 +5,65 @@ package ar.edu.unimoron.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * @author mariano
  *
  */
+@Entity
+@Table(name="DIASHORA")
 public class DiasHora {
 
+	private Long id;
+	private String dia;
 	private Date fechaHoraDesde;
 	private Date fechaHoraHasta;
 	
-	
-	public DiasHora(Date fechaDesde, Date fechaHasta){
+	public DiasHora(String dia , Date fechaDesde, Date fechaHasta){
+		this.dia = dia;
 		this.fechaHoraDesde = fechaDesde;
 		this.fechaHoraHasta = fechaHasta;
 	}
 	
 	/**
+	 * @return the id
+	 */
+	@Id
+	@Column(name="IDDIASHORAS" , nullable = false)
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the dia
+	 */
+	@Column(name="DIA" , nullable = false)
+	public String getDia() {
+		return dia;
+	}
+
+	/**
+	 * @param dia the dia to set
+	 */
+	public void setDia(String dia) {
+		this.dia = dia;
+	}
+	
+	/**
 	 * @return the fechaHoraDesde
 	 */
+	@Column(name="HORADESDE" , nullable = false)
 	public Date getFechaHoraDesde() {
 		return fechaHoraDesde;
 	}
@@ -35,6 +76,7 @@ public class DiasHora {
 	/**
 	 * @return the fechaHoraHasta
 	 */
+	@Column(name="HORAHASTA" , nullable = false)
 	public Date getFechaHoraHasta() {
 		return fechaHoraHasta;
 	}
@@ -44,16 +86,14 @@ public class DiasHora {
 	public void setFechaHoraHasta(Date fechaHoraHasta) {
 		this.fechaHoraHasta = fechaHoraHasta;
 	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "DiasHora [fechaHoraDesde=" + fechaHoraDesde
-				+ ", fechaHoraHasta=" + fechaHoraHasta + "]";
+		return "DiasHora [id=" + id + ", dia=" + dia + ", fechaHoraDesde="
+				+ fechaHoraDesde + ", fechaHoraHasta=" + fechaHoraHasta + "]";
 	}
-	
-	
-	
 	
 }

@@ -3,17 +3,30 @@
  */
 package ar.edu.unimoron.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 /**
  * @author mariano
  *
  */
+@Entity
+@Table(name="ALUMNOCURSO")
 public class AlumnoCurso {
 	private Long id;
 	private DatosAlumno alumno;
 	private Curso curso;
+	
 	/**
 	 * @return the id
 	 */
+	@Id
+	@Column(name="IDALUMNOCURSO" , nullable = false)
 	public Long getId() {
 		return id;
 	}
@@ -26,6 +39,8 @@ public class AlumnoCurso {
 	/**
 	 * @return the alumno
 	 */
+	@ManyToOne
+	@JoinColumn(name="MATRICULAALUMNO", nullable = false)
 	public DatosAlumno getAlumno() {
 		return alumno;
 	}
@@ -38,6 +53,8 @@ public class AlumnoCurso {
 	/**
 	 * @return the curso
 	 */
+	@OneToOne
+	@JoinColumn(name="IDCURSO", nullable = false)
 	public Curso getCurso() {
 		return curso;
 	}

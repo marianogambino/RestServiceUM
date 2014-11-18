@@ -53,9 +53,9 @@ public class LoginService {
 					SimpleDateFormat format = new SimpleDateFormat( "dd/MM/yyyy" );
 					alu.setFechaNacimiento( format.parse( fechaNac ) );
 					
-					alu.setMatricula("31012540");
+					alu.setMatricula(31012540L);
 					alu.setPlanEstudio("2002");
-					alu.setUsuario("um03676");
+					//alu.setUsuario("um03676");
 					
 					
 					// Carrera
@@ -101,7 +101,7 @@ public class LoginService {
 					materias.add( mat3 );
 					materias.add( mat4 );
 					
-					carrera.setMaterias(materias);
+					//carrera.setMaterias(materias);
 					
 					alu.setCarrera(carrera);
 					
@@ -117,7 +117,7 @@ public class LoginService {
 					
 					
 					profesores.add( new Profesor( "Marisa" , "Panisi") );
-					c1.setProfesores( profesores );
+					//c1.setProfesores( profesores );
 					
 					Set<DiasHora> diasHora = new HashSet<DiasHora>();
 					
@@ -128,9 +128,9 @@ public class LoginService {
 					
 					Date dcD = dateformat.parse(diaCursoDesde);
 					Date dcH = dateformat.parse(diaCursoHasta);
-					DiasHora dh = new DiasHora( dcD, dcH);								
+					//DiasHora dh = new DiasHora( dcD, dcH);								
 					
-					diasHora.add( dh );
+					//diasHora.add( dh );
 					
 					c1.setDiasCurso( diasHora );
 					
@@ -144,7 +144,7 @@ public class LoginService {
 					
 					profesores2.add( new Profesor( "Pepe" , "Pepito") );
 					
-					c2.setProfesores(profesores2);
+					//c2.setProfesores(profesores2);
 					
 					Set<DiasHora> diasHora2 = new HashSet<DiasHora>();
 					
@@ -153,14 +153,14 @@ public class LoginService {
 					
 					Date dcD2 = dateformat.parse(diaCursoDesde2);
 					Date dcH2 = dateformat.parse(diaCursoHasta2);
-					DiasHora dh2 = new DiasHora( dcD2, dcH2);								
-					diasHora2.add( dh2 );
+					//DiasHora dh2 = new DiasHora( dcD2, dcH2);								
+					//diasHora2.add( dh2 );
 					
 					c2.setDiasCurso( diasHora2 );
 					
 					cursos.add( c1 );
 					cursos.add( c2 );
-					alu.setCursosIncriptos(cursos);
+					//alu.setCursosIncriptos(cursos);
 					
 					
 					Set<Examen> examenes = new HashSet<Examen>();
@@ -174,7 +174,7 @@ public class LoginService {
 					e.setFechaExamen( dformat.parse( fechaExamen ) );
 					
 					examenes.add( e );
-					alu.setExamenesInscriptos(examenes);
+					//alu.setExamenesInscriptos(examenes);
 					
 					
 					return new LoginResponse( alu );	

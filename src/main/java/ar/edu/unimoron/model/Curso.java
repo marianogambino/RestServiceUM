@@ -7,27 +7,47 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+
 /**
  * @author mariano
  *
  */
+@Entity
+@Table(name="CURSO")
 public class Curso {
+	
 	private Long id;
 	private Materia materia;
 	private String comision;
 	private String aula;
 	private Set<DiasHora> diasCurso = new HashSet<DiasHora>();
-	private Set<DatosAlumno> alumnosIncriptos = new HashSet<DatosAlumno>();
+	private Set<AlumnoCurso> alumnosIncriptos = new HashSet<AlumnoCurso>();
 	
 	private Date fechaInicio;
 	private Date fechaFin;
 
-	private Set<Profesor> profesores = new HashSet<Profesor>(); 
+	private Set<ProfesorCurso> profesores = new HashSet<ProfesorCurso>(); 
 	
 	private String estado; //iniciado-finalizado
+	
+	//@version @column(name="LOCK_VERSION") private Long version
+	
 	/**
 	 * @return the id
 	 */
+	@Id
+	@Column(name="IDCURSO" , nullable = false)
 	public Long getId() {
 		return id;
 	}
@@ -40,6 +60,8 @@ public class Curso {
 	/**
 	 * @return the materia
 	 */
+	@OneToOne
+	@JoinColumn(name="IDMATERIA", nullable = false)
 	public Materia getMateria() {
 		return materia;
 	}
@@ -52,6 +74,7 @@ public class Curso {
 	/**
 	 * @return the comision
 	 */
+	@Column(name="COMISION" , nullable = false)
 	public String getComision() {
 		return comision;
 	}
@@ -64,6 +87,7 @@ public class Curso {
 	/**
 	 * @return the aula
 	 */
+	@Column(name="AULA" , nullable = false)
 	public String getAula() {
 		return aula;
 	}
@@ -76,6 +100,10 @@ public class Curso {
 	/**
 	 * @return the diasCurso
 	 */
+	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
+	@Cascade({org.hibernate.annotations.CascadeType.ALL,
+			  org.hibernate.annotations.CascadeType.DELETE})
+	@JoinColumn(name="IDDIASHORA" , nullable = false)
 	public Set<DiasHora> getDiasCurso() {
 		return diasCurso;
 	}
@@ -88,25 +116,31 @@ public class Curso {
 	/**
 	 * @return the alumnosIncriptos
 	 */
-	public Set<DatosAlumno> getAlumnosIncriptos() {
+	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "curso")
+	@Cascade({org.hibernate.annotations.CascadeType.ALL,
+			  org.hibernate.annotations.CascadeType.DELETE})
+	public Set<AlumnoCurso> getAlumnosIncriptos() {
 		return alumnosIncriptos;
 	}
 	/**
 	 * @param alumnosIncriptos the alumnosIncriptos to set
 	 */
-	public void setAlumnosIncriptos(Set<DatosAlumno> alumnosIncriptos) {
+	public void setAlumnosIncriptos(Set<AlumnoCurso> alumnosIncriptos) {
 		this.alumnosIncriptos = alumnosIncriptos;
 	}
 	/**
 	 * @return the profesores
 	 */
-	public Set<Profesor> getProfesores() {
+	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "curso")
+	@Cascade({org.hibernate.annotations.CascadeType.ALL,
+			  org.hibernate.annotations.CascadeType.DELETE})
+	public Set<ProfesorCurso> getProfesores() {
 		return profesores;
 	}
 	/**
 	 * @param profesores the profesores to set
 	 */
-	public void setProfesores(Set<Profesor> profesores) {
+	public void setProfesores(Set<ProfesorCurso> profesores) {
 		this.profesores = profesores;
 	}
 	
@@ -114,6 +148,7 @@ public class Curso {
 	/**
 	 * @return the estado
 	 */
+	@Column(name="ESTADO" , nullable = false)
 	public String getEstado() {
 		return estado;
 	}
@@ -126,6 +161,7 @@ public class Curso {
 	/**
 	 * @return the fechaInicio
 	 */
+	@Column(name="FECHA_INICIO" , nullable = false)
 	public Date getFechaInicio() {
 		return fechaInicio;
 	}
@@ -138,6 +174,7 @@ public class Curso {
 	/**
 	 * @return the fechaFin
 	 */
+	@Column(name="FECHA_FIN" , nullable = false)
 	public Date getFechaFin() {
 		return fechaFin;
 	}

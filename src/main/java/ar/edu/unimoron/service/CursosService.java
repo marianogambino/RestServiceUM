@@ -72,7 +72,7 @@ public class CursosService {
 			
 			
 			profesores.add( new Profesor( "Marisa" , "Panisi") );
-			c1.setProfesores( profesores );
+			//c1.setProfesores( profesores );
 			
 			Set<DiasHora> diasHora = new HashSet<DiasHora>();
 			
@@ -89,9 +89,9 @@ public class CursosService {
 			
 			Date dcD = dateformat.parse(diaCursoDesde);
 			Date dcH = dateformat.parse(diaCursoHasta);
-			DiasHora dh = new DiasHora( dcD, dcH);								
+			//DiasHora dh = new DiasHora( dcD, dcH);								
 			
-			diasHora.add( dh );
+			//diasHora.add( dh );
 			
 			c1.setDiasCurso( diasHora );
 			
@@ -105,7 +105,7 @@ public class CursosService {
 			
 			profesores2.add( new Profesor( "Pepe" , "Pepito") );
 			
-			c2.setProfesores(profesores2);
+			//c2.setProfesores(profesores2);
 			
 			Set<DiasHora> diasHora2 = new HashSet<DiasHora>();
 			
@@ -114,8 +114,8 @@ public class CursosService {
 			
 			Date dcD2 = dateformat.parse(diaCursoDesde2);
 			Date dcH2 = dateformat.parse(diaCursoHasta2);
-			DiasHora dh2 = new DiasHora( dcD2, dcH2);								
-			diasHora2.add( dh2 );
+			//DiasHora dh2 = new DiasHora( dcD2, dcH2);								
+			//diasHora2.add( dh2 );
 			
 			c2.setDiasCurso( diasHora2 );
 			c2.setFechaInicio( dateformatFechaInicioFin.parse(fechaInicio) );

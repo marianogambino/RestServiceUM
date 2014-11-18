@@ -3,36 +3,45 @@
  */
 package ar.edu.unimoron.model;
 
+import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
 
 /**
  * @author mariano
  *
  */
+@Entity
+@Table(name="CARRERA")
 public class Carrera {
 
-	
 	private Long id;
 	private String nombre;
 	private Facultad facultad;
-	private Set<Materia> materias;
+	
+	private Set<CarreraMateria> materias = new HashSet<CarreraMateria>();
 	
 	
-	/**
-	 * @return the facultad
-	 */
-	public Facultad getFacultad() {
-		return facultad;
-	}
-	/**
-	 * @param facultad the facultad to set
-	 */
-	public void setFacultad(Facultad facultad) {
-		this.facultad = facultad;
-	}
+	
 	/**
 	 * @return the id
 	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="IDCARRERA" , nullable = false)
 	public Long getId() {
 		return id;
 	}
@@ -45,6 +54,7 @@ public class Carrera {
 	/**
 	 * @return the nombre
 	 */
+	@Column(name="NOMBRE" , nullable = false)
 	public String getNombre() {
 		return nombre;
 	}
@@ -54,16 +64,35 @@ public class Carrera {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	/**
+	 * @return the facultad
+	 */
+	@OneToOne
+	@JoinColumn(name="IDFACULTAD", nullable = false)
+	public Facultad getFacultad() {
+		return facultad;
+	}
+	/**
+	 * @param facultad the facultad to set
+	 */
+	public void setFacultad(Facultad facultad) {
+		this.facultad = facultad;
+	}
+	
 	/**
 	 * @return the materias
 	 */
-	public Set<Materia> getMaterias() {
+	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "carrera")
+	@Cascade({org.hibernate.annotations.CascadeType.ALL,
+			  org.hibernate.annotations.CascadeType.DELETE})
+	public Set<CarreraMateria> getMaterias() {
 		return materias;
 	}
 	/**
 	 * @param materias the materias to set
 	 */
-	public void setMaterias(Set<Materia> materias) {
+	public void setMaterias(Set<CarreraMateria> materias) {
 		this.materias = materias;
 	}
 	/* (non-Javadoc)

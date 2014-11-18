@@ -3,18 +3,33 @@
  */
 package ar.edu.unimoron.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 /**
  * @author mariano
  *
  */
+@Entity
+@Table(name="CARRERAMATERIA")
 public class CarreraMateria {
 
 	private Long id;
 	private Carrera carrera;
 	private Materia materia;
+	
 	/**
 	 * @return the id
 	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="IDCARREREAMATERIA" , nullable = false)
 	public Long getId() {
 		return id;
 	}
@@ -27,6 +42,8 @@ public class CarreraMateria {
 	/**
 	 * @return the carrera
 	 */
+	@OneToOne
+	@JoinColumn(name="IDCARRERA", nullable = false)
 	public Carrera getCarrera() {
 		return carrera;
 	}
@@ -39,6 +56,8 @@ public class CarreraMateria {
 	/**
 	 * @return the materia
 	 */
+	@OneToOne
+	@JoinColumn(name="IDMATERIA", nullable = false)
 	public Materia getMateria() {
 		return materia;
 	}

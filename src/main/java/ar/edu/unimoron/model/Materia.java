@@ -1,10 +1,17 @@
 package ar.edu.unimoron.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * 
  * @author mariano
  *
  */
+@Entity
+@Table(name="MATERIA")
 public class Materia {
 	
 	private Long codigo;
@@ -14,6 +21,8 @@ public class Materia {
 	/**
 	 * @return the codigo
 	 */
+	@Id
+	@Column(name="CODIGO" , nullable = false)
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -26,6 +35,7 @@ public class Materia {
 	/**
 	 * @return the nombre
 	 */
+	@Column(name="NOMBRE" , nullable = false)
 	public String getNombre() {
 		return nombre;
 	}
@@ -38,6 +48,7 @@ public class Materia {
 	/**
 	 * @return the descripcion
 	 */
+	@Column(name="DESCRIPCION" , nullable = false)
 	public String getDescripcion() {
 		return descripcion;
 	}

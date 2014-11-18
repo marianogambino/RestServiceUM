@@ -3,17 +3,30 @@
  */
 package ar.edu.unimoron.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * @author mariano
  *
  */
+@Entity
+@Table(name="NOVEDAD")
 public class Novedad {
 
 	private String idNovedad;
 	private String descripcion;
+	
 	/**
 	 * @return the idNovedad
 	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="IDNOVEDAD" , nullable = false)
 	public String getIdNovedad() {
 		return idNovedad;
 	}
@@ -26,6 +39,7 @@ public class Novedad {
 	/**
 	 * @return the descripcion
 	 */
+	@Column(name="DESCRIPCION" , nullable = false)
 	public String getDescripcion() {
 		return descripcion;
 	}
@@ -43,7 +57,5 @@ public class Novedad {
 		return "Novedad [idNovedad=" + idNovedad + ", descripcion="
 				+ descripcion + "]";
 	}
-	
-	
-	
+
 }
