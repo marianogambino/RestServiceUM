@@ -11,6 +11,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -31,7 +33,7 @@ public class Curso {
 	private Materia materia;
 	private String comision;
 	private String aula;
-	private Set<DiasHora> diasCurso = new HashSet<DiasHora>();
+	private Set<CursoDiasHoras> diasCurso = new HashSet<CursoDiasHoras>();
 	private Set<AlumnoCurso> alumnosIncriptos = new HashSet<AlumnoCurso>();
 	
 	private Date fechaInicio;
@@ -47,6 +49,7 @@ public class Curso {
 	 * @return the id
 	 */
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="IDCURSO" , nullable = false)
 	public Long getId() {
 		return id;
@@ -100,17 +103,16 @@ public class Curso {
 	/**
 	 * @return the diasCurso
 	 */
-	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
+	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY , mappedBy="curso" )
 	@Cascade({org.hibernate.annotations.CascadeType.ALL,
 			  org.hibernate.annotations.CascadeType.DELETE})
-	@JoinColumn(name="IDDIASHORA" , nullable = false)
-	public Set<DiasHora> getDiasCurso() {
+	public Set<CursoDiasHoras> getDiasCurso() {
 		return diasCurso;
 	}
 	/**
 	 * @param diasCurso the diasCurso to set
 	 */
-	public void setDiasCurso(Set<DiasHora> diasCurso) {
+	public void setDiasCurso(Set<CursoDiasHoras> diasCurso) {
 		this.diasCurso = diasCurso;
 	}
 	/**

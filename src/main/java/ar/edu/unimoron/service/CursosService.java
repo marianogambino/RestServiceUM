@@ -93,7 +93,7 @@ public class CursosService {
 			
 			//diasHora.add( dh );
 			
-			c1.setDiasCurso( diasHora );
+			//c1.setDiasCurso( diasHora );
 			
 			
 			//curso Programacion Estructurada 1
@@ -117,12 +117,12 @@ public class CursosService {
 			//DiasHora dh2 = new DiasHora( dcD2, dcH2);								
 			//diasHora2.add( dh2 );
 			
-			c2.setDiasCurso( diasHora2 );
-			c2.setFechaInicio( dateformatFechaInicioFin.parse(fechaInicio) );
-			c2.setFechaFin( dateformatFechaInicioFin.parse(fechaFin) );
-			
-			cursos.add( c1 );
-			cursos.add( c2 );
+//			c2.setDiasCurso( diasHora2 );
+//			c2.setFechaInicio( dateformatFechaInicioFin.parse(fechaInicio) );
+//			c2.setFechaFin( dateformatFechaInicioFin.parse(fechaFin) );
+//			
+//			cursos.add( c1 );
+//			cursos.add( c2 );
 			return new CursosResponse(cursos);
 		}
 		catch (ParseException e) {

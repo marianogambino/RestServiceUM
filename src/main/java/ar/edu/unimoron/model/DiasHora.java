@@ -7,6 +7,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -23,6 +25,11 @@ public class DiasHora {
 	private Date fechaHoraDesde;
 	private Date fechaHoraHasta;
 	
+	
+	public DiasHora(){
+		
+	}
+	
 	public DiasHora(String dia , Date fechaDesde, Date fechaHasta){
 		this.dia = dia;
 		this.fechaHoraDesde = fechaDesde;
@@ -33,7 +40,8 @@ public class DiasHora {
 	 * @return the id
 	 */
 	@Id
-	@Column(name="IDDIASHORA" , nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ID" , nullable=false)
 	public Long getId() {
 		return id;
 	}

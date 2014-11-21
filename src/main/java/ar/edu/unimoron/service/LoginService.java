@@ -132,7 +132,7 @@ public class LoginService {
 					
 					//diasHora.add( dh );
 					
-					c1.setDiasCurso( diasHora );
+//					c1.setDiasCurso( diasHora );
 					
 					
 					//curso Programacion Estructurada 1
@@ -156,10 +156,10 @@ public class LoginService {
 					//DiasHora dh2 = new DiasHora( dcD2, dcH2);								
 					//diasHora2.add( dh2 );
 					
-					c2.setDiasCurso( diasHora2 );
-					
-					cursos.add( c1 );
-					cursos.add( c2 );
+//					c2.setDiasCurso( diasHora2 );
+//					
+//					cursos.add( c1 );
+//					cursos.add( c2 );
 					//alu.setCursosIncriptos(cursos);
 					
 					
